@@ -25,3 +25,9 @@ sudo docker run -it -v $(pwd):/tmp --add-host=DC:10.10.90.78 certipy:latest cert
 ```bash
 sudo docker run -it -v $(pwd):/tmp certipy:latest certipy find -u 'user' -p 'password' -scheme ldaps -ldap-channel-binding
 ```
+
+## Use socks5 proxy via proxychains
+
+```bash
+sudo docker run -it --network="host" -v $(pwd):/tmp certipy:latest proxychains4 -q certipy find -u 'user' -p 'pass' -dc-ip 10.10.173.69
+```
